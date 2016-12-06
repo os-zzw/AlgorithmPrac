@@ -1,0 +1,12 @@
+Bag
+12
+a@mail.com
+Cap
+7
+c@mail.com
+Skirt
+5
+b@mail.com
+Coat(物品名称)
+3
+a@mail.com

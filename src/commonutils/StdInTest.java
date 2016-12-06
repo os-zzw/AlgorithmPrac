@@ -1,4 +1,4 @@
-package commonUtils; /**
+package commonutils; /**
  * Test client for StdIn and In. 
  **/
 

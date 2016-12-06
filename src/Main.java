@@ -1,4 +1,4 @@
-import commonUtils.StdOut;
+import commonutils.StdOut;
 import sort.MergeSort;
 
 public class Main {

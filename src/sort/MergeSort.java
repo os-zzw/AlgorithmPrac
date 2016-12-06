@@ -22,15 +22,6 @@ public class MergeSort {
         merge(a, lo, mid, hi);
     }
 
-    //非递归
-    public static void sort_non(Comparable[] a) {
-        int lo = 0, hi = a.length;
-        while (lo <= hi) {
-            int mid = lo + (hi - lo) / 2;
-            merge(a,lo,mid,hi);
-        }
-    }
-
     //原地归并的抽象方法
     public static void merge(Comparable[] a, int lo, int mid, int hi) {
         int i = lo, j = mid + 1;
@@ -47,6 +38,23 @@ public class MergeSort {
                 a[k] = aux[j++];
             else
                 a[k] = aux[i++];
+        }
+    }
+
+    //迭代实现版
+    public static void mergePass(Comparable[] a, int s, int len) {
+        int i = 0;
+        while (i < len - 2 * s + 1) {
+            merge(a, i, i + s - 1, i + 2 * s - 1);
+            i = i + 2 * s;
+        }
+        //处理尾数
+        if (i<len-s+1){
+            merge(a,i,i+s-1,len-1);
+        }else {
+            for (int j = 0; j < len; j++) {
+
+            }
         }
     }
 

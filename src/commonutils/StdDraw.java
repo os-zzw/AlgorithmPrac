@@ -1,4 +1,4 @@
-package commonUtils; /*************************************************************************
+package commonutils; /*************************************************************************
  *  Compilation:  javac StdDraw.java
  *  Execution:    java StdDraw
  *

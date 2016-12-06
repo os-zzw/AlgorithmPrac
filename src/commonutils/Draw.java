@@ -1,4 +1,4 @@
-package commonUtils; /*************************************************************************
+package commonutils; /*************************************************************************
  *  Compilation:  javac Draw.java
  *  Execution:    java Draw
  *

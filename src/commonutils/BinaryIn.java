@@ -1,4 +1,4 @@
-package commonUtils; /*************************************************************************
+package commonutils; /*************************************************************************
  *  Compilation:  javac BinaryIn.java
  *  Execution:    java BinaryIn input output
  *  

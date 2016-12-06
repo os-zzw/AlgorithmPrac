@@ -1,4 +1,4 @@
-package commonUtils;
+package commonutils;
 
 public interface DrawListener {
     public void mousePressed(double x, double y);

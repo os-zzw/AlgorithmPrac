@@ -1,4 +1,4 @@
-package commonUtils; /*************************************************************************
+package commonutils; /*************************************************************************
  *  Compilation:  javac StdOut.java
  *  Execution:    java StdOut
  *

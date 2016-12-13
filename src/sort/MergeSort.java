@@ -2,6 +2,11 @@ package sort;
 
 /**
  * Created by john(Zhewei) on 2016/12/6.
+ * <p>
+ * 归并排序（MERGE-SORT）是建立在归并操作上的一种有效的排序算法,
+ * 该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。
+ * 将已有序的子序列合并，得到完全有序的序列；
+ * 即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为二路归并。
  */
 public class MergeSort {
     private static Comparable[] aux; //归并所需要的辅助数组
@@ -41,22 +46,6 @@ public class MergeSort {
         }
     }
 
-    //迭代实现版
-    public static void mergePass(Comparable[] a, int s, int len) {
-        int i = 0;
-        while (i < len - 2 * s + 1) {
-            merge(a, i, i + s - 1, i + 2 * s - 1);
-            i = i + 2 * s;
-        }
-        //处理尾数
-        if (i < len - s + 1) {
-            merge(a, i, i + s - 1, len - 1);
-        } else {
-            for (int j = 0; j < len; j++) {
-
-            }
-        }
-    }
 
     //通用模板
     public static boolean less(Comparable a, Comparable b) {

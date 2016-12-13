@@ -2,6 +2,7 @@ package sort;
 
 /**
  * Created by john(Zhewei) on 2016/12/10.
+ * 三种基本排序
  */
 public class CommonSorts {
     /**
@@ -28,16 +29,12 @@ public class CommonSorts {
      */
     public static void insertSort(int[] a) {
         int count = 0;
-        for (int i = 0; i < a.length; i++) {
-            for (int j = i - 1; j >= 0; j--) {
+        for (int i = 1; i < a.length; i++) {
+            for (int j = i; j >= 0 && less(a, j, j - 1); j--) {
                 count++;
-                if (a[j + 1] < a[j]) {
-                    int tmp = a[j + 1];
-                    a[j + 1] = a[j];
-                    a[j] = tmp;
-                } else {
-                    break;
-                }
+                int tmp = a[j];
+                a[j] = a[j - 1];
+                a[j - 1] = tmp;
             }
         }
         System.out.println(count);
@@ -61,13 +58,6 @@ public class CommonSorts {
             }
         }
         System.out.println(count);
-    }
-
-    /**
-     * 快速
-     */
-    public static void QuickSort(int[] a) {
-
     }
 
     private static void exch(int[] a, int i, int j) {

@@ -9,10 +9,26 @@ public class Main {
     public static void main(String[] args) {
         int[] a = new int[]{20, 30, 29, 2, 5, 4, 9, 6, 7, 16, 3, 10, 1};
         int[] b = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
-        ShellSort.sort(a);
-        //        CommonSorts.insertSort(b);
-        System.out.println(Arrays.toString(a));
+        int[] c = new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1};
+        //        ShellSort.sort(a);//24次比较
+        //        CommonSorts.insertSort(a);//50次比较
+        //        CommonSorts.selectSort(a);//78次比较
+        //        CommonSorts.BubbleSort(a);//78次比较
+        QuickSort.sort(c, 0, c.length - 1);
+        System.out.println(Arrays.toString(c));
         //        CommonSorts.BubbleSort(a);
         //        System.out.println(Arrays.toString(a));
+        //        partition(c, 0, c.length - 1);
+    }
+
+    //utils
+    private static void exch(int[] a, int i, int j) {
+        int tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+    }
+
+    private static boolean less(int i, int j) {
+        return i < j;
     }
 }

@@ -6,6 +6,11 @@ package sort;
  */
 public class QuickSort {
 
+    public static void sort(int[] a) {
+        sort(a, 0, a.length - 1);
+    }
+
+    //递归调用
     public static void sort(int[] a, int lo, int hi) {
         //当划分到最后只剩下一个元素的时候退出
         if (lo >= hi)
@@ -30,17 +35,17 @@ public class QuickSort {
         int count = 0;
         while (true) {
             //扫描左右,检查扫描是否结束并交换元素
-            while (less(a[++i], v)) {
+            while (less(a[++i], v)) {//当比v小的时候可以继续进行,否则将其和别的小于v的交换
                 if (i == hi)
                     break;
             }
-            while (less(v, a[--j])) {
+            while (less(v, a[--j])) {//当比v大的时候继续进行,否则将其和别的大于v的交换
                 if (j == lo)
                     break;
             }
-            if (i >= j)
+            if (i >= j)//退出外层while循环当两个指针相遇
                 break;
-            exch(a, i, j);
+            exch(a, i, j);//当执行完交换之后 还要进行 ++i --j的操作
         }
         exch(a, lo, j);
         return j;

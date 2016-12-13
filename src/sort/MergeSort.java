@@ -20,28 +20,32 @@ public class MergeSort {
     public static void sort(Comparable[] a, int lo, int hi) {
         //将数组a进行排序
         if (hi <= lo)
-            return;
+            return;//当仅剩一个元素的时候就是排好序的了
         int mid = lo + (hi - lo) / 2;
-        sort(a, lo, mid);
-        sort(a, mid + 1, hi);
-        merge(a, lo, mid, hi);
+        sort(a, lo, mid);//将左侧进行排序
+        sort(a, mid + 1, hi);//将右侧进行排序
+        merge(a, lo, mid, hi);//把左右两侧的有序的合并为一个大的有序的
     }
 
-    //原地归并的抽象方法
+
+    /**
+     * 数组中lo到mid 是有序的 mid+1到hi是有序,该方法是将两个有序的合并为一个有序的大数组
+     */
     public static void merge(Comparable[] a, int lo, int mid, int hi) {
         int i = lo, j = mid + 1;
-        //把元素保存到临时数组中
+        //首先把所有元素保存到临时数组中
         for (int k = lo; k <= hi; k++) {
             aux[k] = a[k];
         }
+        //开始进行比较和存入有序元素
         for (int k = lo; k <= hi; k++) {
-            if (i > mid)
+            if (i > mid)//这是当左侧元素全存入后直接存剩下的右边的有序数组
                 a[k] = aux[j++];
-            else if (j > hi)
+            else if (j > hi)//这是当右侧有序元素全存入后直接存剩下的左侧的有序数组
                 a[k] = aux[i++];
-            else if (less(aux[j], aux[i]))
+            else if (less(aux[j], aux[i]))//当右侧元素小于左侧元素时,存入右侧
                 a[k] = aux[j++];
-            else
+            else//否则存左侧元素
                 a[k] = aux[i++];
         }
     }

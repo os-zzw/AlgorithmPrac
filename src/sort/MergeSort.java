@@ -49,9 +49,9 @@ public class MergeSort {
             i = i + 2 * s;
         }
         //处理尾数
-        if (i<len-s+1){
-            merge(a,i,i+s-1,len-1);
-        }else {
+        if (i < len - s + 1) {
+            merge(a, i, i + s - 1, len - 1);
+        } else {
             for (int j = 0; j < len; j++) {
 
             }

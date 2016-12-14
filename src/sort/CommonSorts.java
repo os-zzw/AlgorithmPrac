@@ -3,6 +3,8 @@ package sort;
 /**
  * Created by john(Zhewei) on 2016/12/10.
  * 三种基本排序
+ * 选择 :不稳定 时间复杂度: 好:O(n^2) 坏:O(n^2) 平均:O(n^2)
+ * 冒泡和插入: 稳定 时间复杂度: 好:O(n) 坏:O(n^2) 平均:O(n^2)
  */
 public class CommonSorts {
     /**
@@ -15,9 +17,7 @@ public class CommonSorts {
             for (int j = 0; j < a.length - 1 - i; j++) {
                 count++;
                 if (a[j + 1] < a[j]) {
-                    int tmp = a[j];
-                    a[j] = a[j + 1];
-                    a[j + 1] = tmp;
+                    exch(a, j, j + 1);
                     flag = true;
                 }
             }
@@ -30,6 +30,7 @@ public class CommonSorts {
 
     /**
      * 插入排序
+     * 适用于小数组,数组已排好序或接近于排好序速度将会非常快
      * 第一次循环 第一个是有序的 第二次循环 前两个是有序的 直到n个都是有序的
      */
     public static void insertSort(int[] a) {
@@ -37,17 +38,16 @@ public class CommonSorts {
         for (int i = 1; i < a.length; i++) {
             for (int j = i; j >= 1 && less(a, j, j - 1); j--) {
                 count++;
-                int tmp = a[j];
-                a[j] = a[j - 1];
-                a[j - 1] = tmp;
+                exch(a, j, j - 1);
             }
         }
-        System.out.println(count);
+        System.out.println(count);//测试时间复杂度
     }
 
     /**
-     * 选择排序
-     * 每次选择最小的放到第一个,第二次选剩下的最小的放到第二个
+     * <p>不稳定
+     * 原理：每次从无序序列选取最小的
+     * 复杂度：O(n^2) - O(n^2) - O(n^2) - O(1)[平均 - 最好 - 最坏 - 空间复杂度]
      */
     public static void selectSort(int[] a) {
         int count = 0;

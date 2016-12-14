@@ -2,7 +2,7 @@ package sort;
 
 /**
  * Created by john(Zhewei) on 2016/12/13.
- * 快速排序是一种分治的排序算法,
+ * 快速排序是一种分治的排序算法
  */
 public class QuickSort {
 

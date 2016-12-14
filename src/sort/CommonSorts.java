@@ -10,14 +10,19 @@ public class CommonSorts {
      */
     public static void BubbleSort(int a[]) {
         int count = 0;
-        for (int i = 0; i < a.length; i++) {
-            for (int j = a.length - 1; j > i; j--) {
+        boolean flag = false;
+        for (int i = 0; i < a.length - 1; i++) {
+            for (int j = 0; j < a.length - 1 - i; j++) {
                 count++;
-                if (a[j] < a[j - 1]) {
+                if (a[j + 1] < a[j]) {
                     int tmp = a[j];
-                    a[j] = a[j - 1];
-                    a[j - 1] = tmp;
+                    a[j] = a[j + 1];
+                    a[j + 1] = tmp;
+                    flag = true;
                 }
+            }
+            if (!flag) {
+                return;
             }
         }
         System.out.println(count);

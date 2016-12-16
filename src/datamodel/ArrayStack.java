@@ -11,7 +11,7 @@ public class ArrayStack<Item> {
     private int N = 0;
 
     private void resizeArray(int max) {
-        Item[] tmp = (Item[]) new Object[1];
+        Item[] tmp = (Item[]) new Object[max];
         for (int i = 0; i < a.length; i++) {
             tmp[i] = a[i];
         }

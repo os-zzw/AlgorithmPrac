@@ -13,8 +13,9 @@ public class CommonSorts {
     public static void BubbleSort(int a[]) {
         int count = 0;
         boolean flag = false;
-        for (int i = 0; i < a.length - 1; i++) {
-            for (int j = 0; j < a.length - 1 - i; j++) {
+        int N = a.length;
+        for (int i = 0; i < N - 1; i++) {
+            for (int j = 0; j < N - 1 - i; j++) {
                 count++;
                 if (a[j + 1] < a[j]) {
                     exch(a, j, j + 1);

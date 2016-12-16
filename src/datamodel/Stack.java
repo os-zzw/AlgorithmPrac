@@ -3,6 +3,7 @@ package datamodel;
 /**
  * Created by john(Zhewei) on 2016/12/13.
  * 链表实现的栈
+ * 先进后出
  */
 public class Stack<Item> {
     private class Node {
@@ -28,6 +29,13 @@ public class Stack<Item> {
         return data;
     }
 
+    public Item peek() {
+        if (top == null) {
+            return null;
+        }
+        return top.data;
+    }
+
     public boolean isEmpty() {
         return top == null;
     }
@@ -35,4 +43,6 @@ public class Stack<Item> {
     public int size() {
         return N;
     }
+
+
 }

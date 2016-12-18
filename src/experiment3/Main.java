@@ -1,23 +1,45 @@
 package experiment3;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import myutils.FileUtils;
+
 /**
  * Created by john(Zhewei) on 2016/12/13.
+ * 回溯法
  */
 public class Main {
 
-    public static void main(String[] args) {
-        double[] weight = {0, 2, 1, 3, 2};
-        double[] prices = {0, 12, 10, 20, 15};
-        double cc = 5;
+    public static void main(String[] args) throws IOException {
+        List<Integer> doubleList = FileUtils.readFile3();
+        double[] weight = new double[doubleList.get(0) + 1];
+        double[] prices = new double[doubleList.get(0) + 1];
+        double cc = doubleList.get(1);
+        for (int i = 2; i <= 5; i++) {
+            weight[i - 1] = doubleList.get(i);
+        }
+        for (int i = 6; i < doubleList.size(); i++) {
+            prices[i - 5] = doubleList.get(i);
+        }
         Main k = new Main();
         double best = k.knapsack(prices, weight, cc);
-        System.out.println("最优值：" + best);
-        System.out.println("选中的物品编号分别是：");
+
+        List<Integer> nums = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            nums.add(0);
+        }
         for (int i = 1; i < k.bestx.length; i++) {
-            if (k.bestx[i] == 1) {
-                System.out.print(k.q[i].id + " ");
+            if (k.bestx[i] == 1) {//k.q[i].id
+                for (int j = 1; j < 5; j++) {
+                    if (k.q[i].id == j) {
+                        nums.set(j - 1, 1);
+                    }
+                }
             }
         }
+        FileUtils.writeFile3(nums);
     }
 
     public static class Element implements Comparable {

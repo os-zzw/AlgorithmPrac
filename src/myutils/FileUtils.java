@@ -3,6 +3,7 @@ package myutils;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,6 +14,31 @@ import experiment1.Advertisement;
  * Created by john(Zhewei) on 2016/12/6.
  */
 public class FileUtils {
+
+    public static List<Integer> readFile3() throws IOException {
+        FileReader fileReader = new FileReader(".\\src\\experiment3\\input.txt");
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            String s = bufferedReader.readLine();
+            String[] split = s.split(" ");
+            for (String s1 : split) {
+                int v = Integer.parseInt(s1);
+                list.add(v);
+            }
+        }
+        return list;
+    }
+
+    public static void writeFile3(List<Integer> nums) throws IOException {
+        FileWriter fileWriter = new FileWriter(".\\src\\experiment3\\output.txt");
+        for (Integer num : nums) {
+            fileWriter.write(num + " ");
+        }
+        fileWriter.flush();
+        fileWriter.close();
+    }
+
 
     public static int[] readFile2() throws Exception {
         FileReader fileReader = new FileReader(".\\src\\experiment2\\input.txt");
@@ -37,7 +63,7 @@ public class FileUtils {
 
     public static void writeFile2(int num) throws Exception {
         FileWriter fileWriter = new FileWriter(".\\src\\experiment2\\output.txt");
-        fileWriter.write(num+"\n");
+        fileWriter.write(num + "\n");
         fileWriter.flush();
         fileWriter.close();
     }

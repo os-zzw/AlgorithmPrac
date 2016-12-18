@@ -85,7 +85,7 @@ public class BinaryTree {
 
     /**
      * 反转二叉树,左孩子变为右孩子,右孩子变为左孩子
-     * 递归实现
+     * 递归实现(效率低)
      */
     public void reverseNode(Node localRoot) {
         Node temp = null;

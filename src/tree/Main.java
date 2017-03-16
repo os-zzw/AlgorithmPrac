@@ -1,5 +1,9 @@
 package tree;
 
+import java.util.Stack;
+
+import zuoshen.tree.Node;
+
 /**
  * Created by john(Zhewei) on 2016/12/14.
  */
@@ -10,5 +14,8 @@ public class Main {
 
         binaryTree.postOrder(binaryTree.root);
     }
+
+
+
 
 }

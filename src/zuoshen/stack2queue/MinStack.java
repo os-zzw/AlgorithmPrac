@@ -4,6 +4,7 @@ import java.util.Stack;
 
 /**
  * Created by john(Zhewei) on 2017/1/25.
+ * 能拿到最小值的栈
  */
 public class MinStack {
 
@@ -15,7 +16,10 @@ public class MinStack {
         stackMin = new Stack<>();
     }
 
-    public void push(int num) {
+    /**
+     * 方案一
+     */
+    public void push1(int num) {
         stackData.push(num);
         if (stackMin.isEmpty()) {
             stackMin.push(num);
@@ -26,7 +30,7 @@ public class MinStack {
         }
     }
 
-    public int pop() {
+    public int pop1() {
         if (stackData.isEmpty()) {
             throw new RuntimeException("stack is empty");
         }
@@ -35,6 +39,30 @@ public class MinStack {
             stackMin.pop();
         }
         return pop;
+    }
+
+    /**
+     * 方案二
+     */
+    public void push2(int num) {
+        stackData.push(num);
+        if (stackMin.isEmpty()) {
+            stackMin.push(num);
+        } else {
+            if (stackMin.peek() >= num) {
+                stackMin.push(num);
+            } else {
+                stackMin.push(stackMin.peek());
+            }
+        }
+    }
+
+    public int pop2() {
+        if (stackData.isEmpty()) {
+            throw new RuntimeException("stack is empty");
+        }
+        stackMin.pop();
+        return stackData.pop();
     }
 
     public int getMin() {

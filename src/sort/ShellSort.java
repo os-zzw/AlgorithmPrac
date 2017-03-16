@@ -16,7 +16,6 @@ public class ShellSort {
      * 在10w的随机数据20w的随机数据均表现优异。
      */
     public static void sort(int[] a) {
-        int count = 0;
         int N = a.length;
         int h = 1;
         while (h < N / 3)
@@ -25,12 +24,10 @@ public class ShellSort {
             for (int i = h; i < N; i++) {
                 for (int j = i; j >= h && less(a, j, j - h); j -= h) {
                     exch(a, j, j - h);
-                    count++;
                 }
             }
             h = h / 3;
         }
-        System.out.println(count);
     }
 
 
@@ -44,4 +41,6 @@ public class ShellSort {
     private static boolean less(int[] a, int i, int j) {
         return a[i] < a[j];
     }
+
+
 }

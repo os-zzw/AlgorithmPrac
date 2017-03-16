@@ -39,7 +39,6 @@ public class QuickSort {
         //将数组切分成 a[lo..i-1] a[i] a[i+1..hi]
         int i = lo, j = hi + 1;
         int v = a[lo];//这是进行比较的元素
-        int count = 0;
         while (true) {
             //扫描左右,检查扫描是否结束并交换元素
             while (less(a[++i], v)) {//当比v小的时候可以继续进行,否则将其和别的小于v的交换

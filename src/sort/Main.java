@@ -14,9 +14,10 @@ public class Main {
         //        ShellSort.sort(a);//24次比较
         //        CommonSorts.insertSort(a);//50次比较
         //        CommonSorts.selectSort(a);//78次比较
-        CommonSorts.BubbleSort(b);//78次比较
+        //        CommonSorts.BubbleSort(b);//78次比较
         //        QuickSort.sort(c, 0, c.length - 1);
-        System.out.println(Arrays.toString(b));
+        CommonSorts.insertSort(a);
+        System.out.println(Arrays.toString(a));
         //        CommonSorts.BubbleSort(a);
         //        System.out.println(Arrays.toString(a));
         //        partition(c, 0, c.length - 1);

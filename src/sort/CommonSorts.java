@@ -11,22 +11,19 @@ public class CommonSorts {
      * 冒泡(交换排序)
      */
     public static void BubbleSort(int a[]) {
-        int count = 0;
-        boolean flag = false;
+
+        boolean flag = true;
         int N = a.length;
-        for (int i = 0; i < N - 1; i++) {
+
+        for (int i = 0; i < N - 1 && flag; i++) {
+            flag = false;
             for (int j = 0; j < N - 1 - i; j++) {
-                count++;
                 if (a[j + 1] < a[j]) {
                     exch(a, j, j + 1);
                     flag = true;
                 }
             }
-            if (!flag) {
-                return;
-            }
         }
-        System.out.println(count);
     }
 
     /**
@@ -35,14 +32,11 @@ public class CommonSorts {
      * 第一次循环 第一个是有序的 第二次循环 前两个是有序的 直到n个都是有序的
      */
     public static void insertSort(int[] a) {
-        int count = 0;
-        for (int i = 1; i < a.length; i++) {
-            for (int j = i; j >= 1 && less(a, j, j - 1); j--) {
-                count++;
-                exch(a, j, j - 1);
-            }
+        int N = a.length;
+        for (int i = 0; i < N - 1; i++) {
+            for (int j = i; j >= 0 && less(a, j + 1, j); j--)
+                exch(a, j + 1, j);
         }
-        System.out.println(count);//测试时间复杂度
     }
 
     /**
@@ -51,11 +45,11 @@ public class CommonSorts {
      * 复杂度：O(n^2) - O(n^2) - O(n^2) - O(1)[平均 - 最好 - 最坏 - 空间复杂度]
      */
     public static void selectSort(int[] a) {
-        int count = 0;
-        for (int i = 0; i < a.length; i++) {
+        int N = a.length;
+
+        for (int i = 0; i < N - 1; i++) {
             int min = i;
-            for (int j = i + 1; j < a.length; j++) {
-                count++;
+            for (int j = i + 1; j < N; j++) {
                 if (a[j] < a[min])
                     min = j;
             }
@@ -63,8 +57,8 @@ public class CommonSorts {
                 exch(a, i, min);
             }
         }
-        System.out.println(count);
     }
+
 
     private static void exch(int[] a, int i, int j) {
         int tmp = a[i];

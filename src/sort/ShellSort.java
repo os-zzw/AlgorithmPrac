@@ -16,6 +16,7 @@ public class ShellSort {
      * 在10w的随机数据20w的随机数据均表现优异。
      */
     public static void sort(int[] a) {
+
         int N = a.length;
         int h = 1;
         while (h < N / 3)
